@@ -72,6 +72,7 @@ export const TRANSLATIONS: Translations = {
   guests: { en: 'Guests', ar: 'النزلاء' },
   popular_destinations: { en: 'Popular Destinations', ar: 'وجهات شائعة' },
   special_offers: { en: 'Special Offers', ar: 'عروض خاصة' },
+  trip_planner: { en: 'Trip Planner', ar: 'مخطط الرحلات' },
   trip_planner_title: { en: 'AI-Powered Trip Planner', ar: 'مخطط رحلات مدعوم بالذكاء الاصطناعي' },
   trip_planner_prompt: { en: 'e.g., A 5-day adventurous trip to Costa Rica', ar: 'مثال: رحلة مغامرات لمدة 5 أيام إلى كوستاريكا' },
   generate_itinerary: { en: 'Generate Itinerary', ar: 'إنشاء خط سير الرحلة' },

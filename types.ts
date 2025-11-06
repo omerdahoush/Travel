@@ -3,6 +3,7 @@ export enum Page {
   Flights = 'FLIGHTS',
   Hotels = 'HOTELS',
   Packages = 'PACKAGES',
+  TripPlanner = 'TRIP_PLANNER',
   Confirmation = 'CONFIRMATION',
   Bookings = 'BOOKINGS',
 }

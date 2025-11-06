@@ -7,6 +7,7 @@ import FlightsPage from './components/FlightsPage';
 import HotelsPage from './components/HotelsPage';
 import PackagesPage from './components/PackagesPage';
 import ConfirmationPage from './components/ConfirmationPage';
+import TripPlannerPage from './components/TripPlannerPage';
 import { TRANSLATIONS } from './constants';
 import { HotelIcon, PlaneIcon, PackageIcon } from './components/Icons';
 
@@ -86,6 +87,8 @@ function App() {
         return <HotelsPage setCurrentPage={setCurrentPage} setBookingDetails={handleSetBooking} currentLanguage={language} />;
       case Page.Packages:
         return <PackagesPage setCurrentPage={setCurrentPage} setBookingDetails={handleSetBooking} currentLanguage={language} />;
+      case Page.TripPlanner:
+        return <TripPlannerPage currentLanguage={language} />;
       case Page.Confirmation:
         return <ConfirmationPage bookingDetails={currentBooking} setCurrentPage={setCurrentPage} currentLanguage={language} />;
       case Page.Bookings:
@@ -98,7 +101,7 @@ function App() {
   return (
     <div className={`flex flex-col min-h-screen bg-white font-sans ${language === Language.Ar ? 'font-[Tahoma]' : ''}`}>
       <Header setCurrentPage={setCurrentPage} currentLanguage={language} setLanguage={setLanguage} />
-      <div className="flex-grow">
+      <div className="flex-grow pt-20">
         {renderPage()}
       </div>
       <Footer />

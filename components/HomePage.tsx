@@ -34,25 +34,25 @@ const SearchForm: React.FC<{ currentLanguage: Language; setCurrentPage: (page: P
       </div>
       {activeTab === 'flights' && (
         <form className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-end" onSubmit={(e) => { e.preventDefault(); setCurrentPage(Page.Flights); }}>
-          <div className="col-span-1 md:col-span-2 lg:col-span-1"><label className="block text-sm font-medium text-gray-700">{t('from')}</label><input type="text" placeholder="New York" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" /></div>
-          <div className="col-span-1 md:col-span-2 lg:col-span-1"><label className="block text-sm font-medium text-gray-700">{t('to')}</label><input type="text" placeholder="London" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" /></div>
-          <div><label className="block text-sm font-medium text-gray-700">{t('departure')}</label><input type="date" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" /></div>
+          <div className="col-span-1 md:col-span-2 lg:col-span-1"><label className="block text-sm font-medium text-gray-700">{t('from')}</label><input type="text" placeholder="New York" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-900" /></div>
+          <div className="col-span-1 md:col-span-2 lg:col-span-1"><label className="block text-sm font-medium text-gray-700">{t('to')}</label><input type="text" placeholder="London" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-900" /></div>
+          <div><label className="block text-sm font-medium text-gray-700">{t('departure')}</label><input type="date" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-900" /></div>
           <button type="submit" className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-700 transition-transform duration-300 hover:scale-105">{t('search')}</button>
         </form>
       )}
       {activeTab === 'hotels' && (
         <form className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-end" onSubmit={(e) => { e.preventDefault(); setCurrentPage(Page.Hotels); }}>
-          <div className="col-span-1 md:col-span-2 lg:col-span-2"><label className="block text-sm font-medium text-gray-700">{t('city_hotel_name')}</label><input type="text" placeholder="Paris" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" /></div>
-          <div><label className="block text-sm font-medium text-gray-700">{t('check_in')}</label><input type="date" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" /></div>
+          <div className="col-span-1 md:col-span-2 lg:col-span-2"><label className="block text-sm font-medium text-gray-700">{t('city_hotel_name')}</label><input type="text" placeholder="Paris" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-900" /></div>
+          <div><label className="block text-sm font-medium text-gray-700">{t('check_in')}</label><input type="date" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 text-gray-900" /></div>
           <button type="submit" className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-700 transition-transform duration-300 hover:scale-105">{t('search')}</button>
         </form>
       )}
       {activeTab === 'packages' && (
         <form className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-end" onSubmit={(e) => { e.preventDefault(); setCurrentPage(Page.Packages); }}>
-            <div className="col-span-1"><label className="block text-sm font-medium text-gray-700">{t('from')}</label><input type="text" placeholder="New York" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/></div>
-            <div className="col-span-1"><label className="block text-sm font-medium text-gray-700">{t('destination')}</label><input type="text" placeholder="London" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/></div>
-            <div className="col-span-1"><label className="block text-sm font-medium text-gray-700">{t('departure')}</label><input type="date" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/></div>
-            <div className="col-span-1"><label className="block text-sm font-medium text-gray-700">{t('return')}</label><input type="date" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"/></div>
+            <div className="col-span-1"><label className="block text-sm font-medium text-gray-700">{t('from')}</label><input type="text" placeholder="New York" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500"/></div>
+            <div className="col-span-1"><label className="block text-sm font-medium text-gray-700">{t('destination')}</label><input type="text" placeholder="London" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500"/></div>
+            <div className="col-span-1"><label className="block text-sm font-medium text-gray-700">{t('departure')}</label><input type="date" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500"/></div>
+            <div className="col-span-1"><label className="block text-sm font-medium text-gray-700">{t('return')}</label><input type="date" className="mt-1 block w-full border-gray-300 rounded-md shadow-sm text-gray-900 focus:ring-blue-500 focus:border-blue-500"/></div>
             <button type="submit" className="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-700 transition-transform duration-300 hover:scale-105">{t('search')}</button>
         </form>
       )}
