@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Language } from '../types';
+import { Language, Page } from '../types';
 import { TRANSLATIONS } from '../constants';
 import { generateItinerary } from '../services/geminiService';
-import { MapPinIcon } from './Icons';
+import { MapPinIcon, ArrowLeftIcon } from './Icons';
 
-const TripPlannerPage: React.FC<{ currentLanguage: Language }> = ({ currentLanguage }) => {
+const TripPlannerPage: React.FC<{ currentLanguage: Language; setCurrentPage: (page: Page) => void; }> = ({ currentLanguage, setCurrentPage }) => {
   const t = (key: string) => TRANSLATIONS[key][currentLanguage];
   const [prompt, setPrompt] = useState('');
   const [itinerary, setItinerary] = useState('');
@@ -40,6 +40,16 @@ const TripPlannerPage: React.FC<{ currentLanguage: Language }> = ({ currentLangu
   return (
     <div className="bg-gray-50 min-h-screen py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+         <div className="mb-8">
+            <button 
+                onClick={() => setCurrentPage(Page.Home)} 
+                className="flex items-center text-gray-600 hover:text-blue-600 transition-colors group"
+                aria-label={t('back')}
+            >
+                <ArrowLeftIcon className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+                <span className="ml-2 font-semibold">{t('back')}</span>
+            </button>
+        </div>
         <div className="max-w-3xl mx-auto text-center">
             <MapPinIcon className="w-16 h-16 mx-auto text-blue-600"/>
             <h1 className="text-4xl font-extrabold text-gray-900 mt-4">{t('trip_planner_title')}</h1>

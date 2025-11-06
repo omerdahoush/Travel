@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Page, Language, Flight } from '../types';
 import { TRANSLATIONS, FLIGHTS_DATA } from '../constants';
-import { PlaneIcon } from './Icons';
+import { PlaneIcon, ArrowLeftIcon } from './Icons';
 
 interface FlightsPageProps {
   setCurrentPage: (page: Page) => void;
@@ -38,7 +38,17 @@ const FlightsPage: React.FC<FlightsPageProps> = ({ setCurrentPage, setBookingDet
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center">{t('flights')}</h1>
+        <div className="relative mb-8 text-center">
+            <button
+                onClick={() => setCurrentPage(Page.Home)}
+                className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center text-gray-600 hover:text-blue-600 transition-colors group"
+                aria-label={t('back')}
+            >
+                <ArrowLeftIcon className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+                <span className="ml-2 font-semibold">{t('back')}</span>
+            </button>
+            <h1 className="text-4xl font-bold text-gray-800 inline-block">{t('flights')}</h1>
+        </div>
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Filters */}
           <aside className="w-full lg:w-1/4">

@@ -90,6 +90,7 @@ export const TRANSLATIONS: Translations = {
   booking_summary: { en: 'Booking Summary', ar: 'ملخص الحجز' },
   booking_date: { en: 'Booking Date:', ar: 'تاريخ الحجز:' },
   back_to_home: { en: 'Back to Home', ar: 'العودة إلى الصفحة الرئيسية' },
+  back: { en: 'Back', ar: 'العودة' },
   no_bookings_yet: { en: 'You have no bookings yet.', ar: 'ليس لديك حجوزات حتى الآن.' },
   package_deal: { en: 'Package Deal', ar: 'عرض الباقة' },
   total_price: { en: 'Total Price', ar: 'السعر الإجمالي' },

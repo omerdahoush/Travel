@@ -9,13 +9,23 @@ import PackagesPage from './components/PackagesPage';
 import ConfirmationPage from './components/ConfirmationPage';
 import TripPlannerPage from './components/TripPlannerPage';
 import { TRANSLATIONS } from './constants';
-import { HotelIcon, PlaneIcon, PackageIcon } from './components/Icons';
+import { HotelIcon, PlaneIcon, PackageIcon, ArrowLeftIcon } from './components/Icons';
 
-const BookingsPage: React.FC<{ bookings: Booking[], currentLanguage: Language }> = ({ bookings, currentLanguage }) => {
+const BookingsPage: React.FC<{ bookings: Booking[], currentLanguage: Language, setCurrentPage: (page: Page) => void }> = ({ bookings, currentLanguage, setCurrentPage }) => {
     const t = (key: string) => TRANSLATIONS[key][currentLanguage];
     return (
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 min-h-[60vh]">
-            <h1 className="text-4xl font-bold text-gray-800 mb-8">{t('my_bookings')}</h1>
+            <div className="relative mb-8 text-center">
+                 <button
+                    onClick={() => setCurrentPage(Page.Home)}
+                    className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center text-gray-600 hover:text-blue-600 transition-colors group"
+                    aria-label={t('back')}
+                >
+                    <ArrowLeftIcon className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+                    <span className="ml-2 font-semibold">{t('back')}</span>
+                </button>
+                <h1 className="text-4xl font-bold text-gray-800 inline-block">{t('my_bookings')}</h1>
+            </div>
             {bookings.length === 0 ? (
                 <p className="text-gray-600">{t('no_bookings_yet')}</p>
             ) : (
@@ -88,11 +98,11 @@ function App() {
       case Page.Packages:
         return <PackagesPage setCurrentPage={setCurrentPage} setBookingDetails={handleSetBooking} currentLanguage={language} />;
       case Page.TripPlanner:
-        return <TripPlannerPage currentLanguage={language} />;
+        return <TripPlannerPage currentLanguage={language} setCurrentPage={setCurrentPage} />;
       case Page.Confirmation:
         return <ConfirmationPage bookingDetails={currentBooking} setCurrentPage={setCurrentPage} currentLanguage={language} />;
       case Page.Bookings:
-        return <BookingsPage bookings={bookings} currentLanguage={language}/>;
+        return <BookingsPage bookings={bookings} currentLanguage={language} setCurrentPage={setCurrentPage} />;
       default:
         return <HomePage setCurrentPage={setCurrentPage} currentLanguage={language} />;
     }

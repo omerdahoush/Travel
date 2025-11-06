@@ -1,7 +1,7 @@
 import React from 'react';
 import { Page, Language, PackageDeal } from '../types';
 import { TRANSLATIONS, PACKAGES_DATA } from '../constants';
-import { PlaneIcon, HotelIcon, StarIcon } from './Icons';
+import { PlaneIcon, HotelIcon, StarIcon, ArrowLeftIcon } from './Icons';
 
 interface PackagesPageProps {
   setCurrentPage: (page: Page) => void;
@@ -28,7 +28,17 @@ const PackagesPage: React.FC<PackagesPageProps> = ({ setCurrentPage, setBookingD
   return (
     <div className="bg-gray-50 min-h-screen">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <h1 className="text-4xl font-bold text-gray-800 mb-8 text-center">{t('packages')}</h1>
+        <div className="relative mb-8 text-center">
+            <button
+                onClick={() => setCurrentPage(Page.Home)}
+                className="absolute left-0 top-1/2 -translate-y-1/2 flex items-center text-gray-600 hover:text-blue-600 transition-colors group"
+                aria-label={t('back')}
+            >
+                <ArrowLeftIcon className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
+                <span className="ml-2 font-semibold">{t('back')}</span>
+            </button>
+            <h1 className="text-4xl font-bold text-gray-800 inline-block">{t('packages')}</h1>
+        </div>
         <div className="max-w-4xl mx-auto space-y-8">
           {PACKAGES_DATA.map(pkg => {
             const originalPrice = pkg.flight.price + pkg.hotel.pricePerNight;
